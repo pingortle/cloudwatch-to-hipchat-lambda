@@ -13,6 +13,6 @@
     "deploy-lambda": "^1.2.0"
   },
   "dependencies": {
-    "hipchat-message": "^0.1.5"
+    "hipchat-notifier": "^1.1.0"
   }
 }

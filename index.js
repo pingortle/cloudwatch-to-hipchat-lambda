@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const HipChat = require('hipchat-message');
+const HipChatNotifierMaker = require('hipchat-notifier');
 
 var config = JSON.parse(fs.readFileSync(path.join(__dirname, 'config.json'), 'utf8'));
 
@@ -10,18 +10,12 @@ exports.handler = function (event, context) {
   console.log(jsonMessage);
   var alarm = JSON.parse(jsonMessage);
 
-  var hipchat = new HipChat({
-      'auth_token': config['auth_token'],
-      'room_id'   : config['room_id'],
-      'from'      : config['from'] || 'AWS CloudWatch',
-      title       : `<strong>${alarm.AlarmName}: ${alarm.NewStateValue}</strong>`,
-      format      : 'html',
-  }, function () {
-      console.log('call completed');
-  });
+  notifier = HipChatNotifierMaker.make(config['room_id'], config['auth_token'], 'AWS CloudWatch');
 
-  var alarmState = alarm.NewStateValue === 'ALARM' ? 'error' : 'success';
-  hipchat[alarmState](alarm.NewStateReason, true, function (error, responseCode, body) {
+  var alarmState = alarm.NewStateValue === 'ALARM' ? 'failure' : 'success';
+
+  var message = `<p><strong>${alarm.AlarmName}: ${alarm.NewStateValue}</strong></p><p>${alarm.NewStateReason}</p>`
+  notifier[alarmState](message, function (error, response, body) {
     var requestState = error ? 'fail' : 'succeed';
     context[requestState](body);
   });
