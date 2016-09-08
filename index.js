@@ -1,7 +1,7 @@
+var fs = require('fs');
 var HipChat = require('hipchat-message');
 
-var hipchatAuthToken = 'aXWAcvmSmQjMDpEEFCGJKln3y2qX6UNkSARAXXPa';
-var hipchatRoomId = '1311730';
+var config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
 
 exports.handler = function (event, context) {
   var jsonMessage = event.Records[0].Sns.Message;
@@ -9,9 +9,9 @@ exports.handler = function (event, context) {
   var alarm = JSON.parse(jsonMessage);
 
   var hipchat = new HipChat({
-      'auth_token': hipchatAuthToken,
-      'room_id'   : hipchatRoomId,
-      'from'      : 'AWS CloudWatch',
+      'auth_token': config['auth_token'],
+      'room_id'   : config['room_id'],
+      'from'      : config['from'] || 'AWS CloudWatch',
       title       : `<strong>${alarm.AlarmName}: ${alarm.NewStateValue}</strong>`,
       format      : 'html',
   }, function () {
