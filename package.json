@@ -1,0 +1,18 @@
+{
+  "name": "cloudwatch-to-hipchat-lambda",
+  "version": "1.0.0",
+  "description": "AWS Lambda script to send cloudwatch notifications to hipchat.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "deploy-lambda deploy -c deploy-config.json"
+  },
+  "author": "kaleb.lape@metova.com",
+  "license": "ISC",
+  "devDependencies": {
+    "deploy-lambda": "^1.2.0"
+  },
+  "dependencies": {
+    "hipchat-message": "^0.1.5"
+  }
+}
