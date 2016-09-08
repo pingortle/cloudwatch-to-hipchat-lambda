@@ -5,6 +5,7 @@ const HipChat = require('hipchat-message');
 var config = JSON.parse(fs.readFileSync(path.join(__dirname, 'config.json'), 'utf8'));
 
 exports.handler = function (event, context) {
+  console.log(config);
   var jsonMessage = event.Records[0].Sns.Message;
   console.log(jsonMessage);
   var alarm = JSON.parse(jsonMessage);
