@@ -1,7 +1,8 @@
-var fs = require('fs');
-var HipChat = require('hipchat-message');
+const fs = require('fs');
+const path = require('path');
+const HipChat = require('hipchat-message');
 
-var config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
+var config = JSON.parse(fs.readFileSync(path.join(__dirname, 'config.json'), 'utf8'));
 
 exports.handler = function (event, context) {
   var jsonMessage = event.Records[0].Sns.Message;
