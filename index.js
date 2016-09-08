@@ -1,6 +1,6 @@
 var HipChat = require('hipchat-message');
 
-var hipchatAuthToken = 'lgdIDCBWU21B1ii4PNQc59Z0mjANbnUVxUUzbT0f';
+var hipchatAuthToken = 'aXWAcvmSmQjMDpEEFCGJKln3y2qX6UNkSARAXXPa';
 var hipchatRoomId = '1311730';
 
 exports.handler = function (event, context) {
