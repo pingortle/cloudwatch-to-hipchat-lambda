@@ -12,7 +12,7 @@ exports.handler = function (event, context) {
       'auth_token': hipchatAuthToken,
       'room_id'   : hipchatRoomId,
       'from'      : 'AWS CloudWatch',
-      title       : `<strong>${alarm.AlarmName: alarm.NewStateValue}</strong>`,
+      title       : `<strong>${alarm.AlarmName}: ${alarm.NewStateValue}</strong>`,
       format      : 'html',
   }, function () {
       console.log('call completed');
