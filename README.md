@@ -20,7 +20,7 @@
 ## Example `config.json`
 ```
 {
-  "auth_token": "aXWAcvmSmQjMDpEEFCGJKln3y2qX6UNkSARAXXPa",
+  "auth_token": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
   "room_id": "1311730"
 }
 ```
