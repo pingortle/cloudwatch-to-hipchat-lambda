@@ -3,6 +3,12 @@
 - Clone repo
 - Run `npm install`
 
+## Hacking
+- Change a test
+- Run `npm test`
+- Write some code
+- Repeat
+
 ## Deploy
 - Set up [config.json](#markdown-header-example-configjson) in the project's root directory
     - Set `room_id` to the id of your hipchat room
