@@ -52,10 +52,10 @@ exports.elbOkMessageData = {
     }
 };
 
-exports.snsElbAlarmEvent = snsElbEventGenerator(exports.elbAlarmMessageData);
-exports.snsElbOkEvent = snsElbEventGenerator(exports.elbOkMessageData);
+exports.snsElbAlarmEvent = generateSnsElbEvent(exports.elbAlarmMessageData);
+exports.snsElbOkEvent = generateSnsElbEvent(exports.elbOkMessageData);
 
-function snsElbEventGenerator(messageData) {
+function generateSnsElbEvent(messageData) {
   return {
     "Records": [
       {
