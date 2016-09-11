@@ -17,12 +17,8 @@ describe('index', function () {
     }
   };
 
-  before(function () {
-    sinon.stub(console, 'log');
-  });
-  after(function () {
-    console.log.restore();
-  })
+  before(() => { sinon.stub(console, 'log'); });
+  after(() => { console.log.restore(); })
 
   before(function () {
     mockery.enable();
