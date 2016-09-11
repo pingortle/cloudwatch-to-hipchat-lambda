@@ -9,10 +9,10 @@ const messageTemplate = Handlebars.compile(messageTemplateSource);
 const notifier = HipChatNotifierMaker.make(config['room_id'], config['auth_token'], 'AWS CloudWatch');
 
 exports.handler = function (event, context) {
-  const jsonMessage = event.Records[0].Sns.Message;
-  console.log(jsonMessage);
+  // Log whole event for future reference.
+  console.log(event);
 
-  const alarm = JSON.parse(jsonMessage);
+  const alarm = JSON.parse(event.Records[0].Sns.Message);
 
   const alarmState = alarm.NewStateValue === 'ALARM' ? 'failure' : 'success';
 
