@@ -4,10 +4,9 @@
 - Run `npm install`
 
 ## Hacking
-- Change a test
-- Run `npm test`
 - Write some code
-- Repeat
+- Run `npm test`
+- Rinse and repeat
 
 ## Deploy
 - Set up [config.json](#markdown-header-example-configjson) in the project's root directory
