@@ -4,7 +4,7 @@
   "description": "AWS Lambda script to send cloudwatch notifications to hipchat.",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/eslint/bin/eslint.js *.js test/*.js && ./node_modules/.bin/mocha --reporter spec",
+    "test": "node_modules/eslint/bin/eslint.js *.js test/*.js && ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --reporter spec",
     "deploy": "deploy-lambda deploy -c deploy-config.json"
   },
   "author": "kaleb.lape@metova.com",
@@ -12,6 +12,7 @@
   "devDependencies": {
     "deploy-lambda": "^1.2.0",
     "eslint": "^3.5.0",
+    "istanbul": "^0.4.5",
     "mocha": "^3.0.2",
     "mockery": "^1.7.0",
     "sinon": "^1.17.5"
